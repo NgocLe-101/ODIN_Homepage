@@ -1,0 +1,142 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2 {
+  font-family: "Playfair Display", serif;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+img {
+  width: 100%;
+}
+
+header,
+main {
+  margin: 3rem;
+}
+
+p {
+  text-wrap: balance;
+  font-weight: 400;
+  opacity: 0.75;
+}
+
+.heading {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+header > .header-image {
+  padding: 0.5rem;
+  position: relative;
+}
+
+.header-image > .name {
+  z-index: 100;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 9rem;
+  padding: 0 2rem;
+}
+
+header > p {
+  font-size: 3rem;
+  line-height: 4rem;
+  margin: 2rem;
+}
+
+.link-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  font-size: 5rem;
+}
+
+.link-container a {
+  text-decoration: none;
+  transition: all 0.2s;
+  transition-delay: 0.1s;
+}
+
+.link-container a:hover,
+.link-container a:focus-visible {
+  transform: scale(1.25);
+}
+
+.link-container:has(:hover) a:not(:hover) {
+  opacity: 0.3;
+}
+
+main > .card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 5rem;
+}
+
+.card {
+  display: grid;
+  grid-template-rows: 3fr 2fr;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.card .bottom .project-heading-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem 3rem;
+  font-size: 1.5rem;
+}
+
+.project-heading-info .link-container {
+  font-size: 2rem;
+  gap: 1rem;
+}
+
+.project-heading-info .link-container svg {
+  width: 2rem;
+}
+
+.card .bottom .project-description {
+  margin: 0 1.5rem;
+  font-size: 1.5rem;
+}
+
+footer {
+  background-color: #0891b2;
+  font-size: 1.5rem;
+  color: white;
+}
+
+footer p {
+  opacity: 1;
+}
+
+footer .contact-info {
+  padding: 0 2rem;
+}
+
+.contact-info > * {
+  margin-bottom: 2rem;
+}
+
+.contact-info .contact-description {
+  font-size: 2rem;
+}
