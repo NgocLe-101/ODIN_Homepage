@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+:root {
+  --mg-main-layoutX: 2rem;
+  --mg-main-layoutY: 1rem;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -22,12 +27,12 @@ h1 {
 
 img {
   display: block;
-  width: 100%;
+  max-width: 100%;
 }
 
 header,
 main {
-  margin: 1rem;
+  margin: var(--mg-main-layoutY) var(--mg-main-layoutX);
 }
 
 p {
@@ -46,6 +51,7 @@ header > .header-image {
 }
 
 .header-image > .name {
+  text-shadow: 0 2px rgba(0, 0, 0, 0.5);
   z-index: 100;
   color: white;
   position: absolute;
@@ -91,14 +97,14 @@ header > p {
 }
 
 main {
-  padding: 5rem 0;
+  padding-bottom: 5rem;
 }
 
 main > .card-container {
   margin: 0 0.25rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-  grid-auto-rows: minmax(550px, 1fr);
+  grid-template-columns: minmax(calc(330px - var(--mg-main-layoutX) * 2), 1fr);
+  grid-auto-rows: minmax(450px, 1fr);
   gap: 5rem;
 }
 
@@ -165,4 +171,75 @@ footer .contact-info {
 
 .contact-info .contact-description {
   font-size: 2rem;
+}
+
+@media (768px <= width <= 1024px) {
+  header,
+  main {
+    margin: 2rem 5rem;
+  }
+
+  header {
+    margin-top: 10rem;
+    padding: 1rem;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding-bottom: 2rem;
+  }
+  header > .link-container {
+    display: none;
+  }
+
+  :not(header) > .heading {
+    text-align: left;
+  }
+
+  .header-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: -150px;
+    margin-left: -60px;
+    float: left;
+  }
+
+  .header-image .name {
+    top: 0;
+    right: 0;
+    transform: translate(calc(75% - var(--mg-main-layoutX) * 2 + 5vw), 1rem);
+    z-index: 100;
+    text-wrap: nowrap;
+    font-size: calc(2.5rem + 2vw);
+    width: calc(100% - var(--mg-main-layoutX) * 2);
+  }
+
+  .header-image img {
+    height: 500px;
+    width: 450px;
+    object-fit: cover;
+  }
+
+  main > .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  main header > p {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  footer {
+    padding: 4rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-info > .contact-description {
+    font-size: 1.5rem;
+  }
+
+  .contact-info > .link-container {
+    justify-content: flex-start;
+    font-size: calc(2.5rem + 1vw);
+  }
 }
